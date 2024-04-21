@@ -178,3 +178,14 @@ main (int argc, char *argv[])
 ./Netanim  
 java -jar "tracemetrics.jar"
 wireshark
+
+
+./waf --run scratch/seventh.cc
+set terminal pdf
+set output "output pdf"
+set title "congestion window"
+set xlabel "Time"
+set ylabel "congestion window"
+plot "details.cwnd" using 1:2 with linespoints title "old value", "details.cwnd" using 1:3 with title "new value"
+
+gnuplot ExamPlot.plt
